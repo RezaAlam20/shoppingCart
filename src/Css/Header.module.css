@@ -1,0 +1,9 @@
+.header {
+  background-color: red;
+  height: 5vw;
+  padding: 0.5vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1vw;
+}
