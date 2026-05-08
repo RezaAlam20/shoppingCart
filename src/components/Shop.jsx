@@ -5,6 +5,7 @@ import Item from "./Item";
 export default function Shop() {
   const [data, setData] = useState("");
   const [loading, setloading] = useState("true");
+  const [error, setError] = useState(null);
   useEffect(() => {
     const getData = async () => {
       await fetch("https://fakestoreapi.com/products")
@@ -13,7 +14,7 @@ export default function Shop() {
           setData(data);
         })
         .catch((error) => {
-          console.log(error);
+          setError(error);
         })
         .finally(() => {
           setloading(false);
@@ -23,6 +24,9 @@ export default function Shop() {
   }, []);
   if (loading) {
     return <div>Loading ...</div>;
+  }
+  if (error) {
+    return <div>{error.message}</div>;
   }
   return (
     <section>
