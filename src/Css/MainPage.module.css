@@ -1,0 +1,11 @@
+.imageContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.phrase {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
