@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import styles from "../Css/Header.module.css";
 
 export default function Header() {
@@ -6,10 +6,13 @@ export default function Header() {
     <>
       <header className={styles.header}>
         <h2>Fade Out</h2>
-        <button>Shop</button>
-        <button>Cart</button>
+
+        <Link to={"/Shop"}>Shop</Link>
+
+        <Link to={"/Cart"}>Cart</Link>
       </header>
       <Outlet></Outlet>
+      <footer className={styles.footer}>This is the footer</footer>
     </>
   );
 }
