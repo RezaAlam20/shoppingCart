@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Item from "./Item";
+import styles from "../Css/Shop.module.css";
 
 export default function Shop() {
   const [data, setData] = useState("");
@@ -11,7 +12,11 @@ export default function Shop() {
       await fetch("https://fakestoreapi.com/products")
         .then((response) => response.json())
         .then((data) => {
-          setData(data);
+          let selectedItems = [];
+          for (let i = 0; i < 12; i++) {
+            selectedItems.push(data[i]);
+          }
+          setData(selectedItems);
         })
         .catch((error) => {
           setError(error);
@@ -28,15 +33,20 @@ export default function Shop() {
   if (error) {
     return <div>{error.message}</div>;
   }
+  console.log(data);
   return (
-    <section>
-      <Item
-        url={data[1].image}
-        alt={data[1].description}
-        title={data[1].title}
-        amount={0}
-        price={data[1].price}
-      ></Item>
+    <section className={styles.shop}>
+      {data.map((item) => {
+        return (
+          <Item
+            url={item.image}
+            title={item.title}
+            alt={item.title}
+            price={item.price}
+            initialAmount={0}
+          ></Item>
+        );
+      })}
     </section>
   );
 }
