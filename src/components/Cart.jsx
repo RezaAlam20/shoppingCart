@@ -1,3 +1,17 @@
+import { useOutletContext } from "react-router-dom";
+
 export default function Cart() {
-  return <div>Cart component</div>;
+  const { cart } = useOutletContext();
+  return (
+    <div>
+      {cart.map((item) => {
+        return (
+          <>
+            <span>{item.title}</span>
+            <span>{item.amount}</span>
+          </>
+        );
+      })}
+    </div>
+  );
 }
