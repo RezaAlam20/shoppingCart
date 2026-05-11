@@ -1,12 +1,10 @@
 import { useOutletContext } from "react-router-dom";
 import styles from "../Css/Item.module.css";
-import { useState } from "react";
 
-export default function Item({ url, alt, title, price }) {
+export default function Item({ url, alt, title, price, id }) {
   const { addToCart, cart, removeItem } = useOutletContext();
-  const [UUID] = useState(crypto.randomUUID());
 
-  const item = cart.find((item) => item.UUID == UUID);
+  const item = cart.find((item) => item.id == id);
   let amount = 0;
   if (item) {
     amount = item.amount;
@@ -18,7 +16,7 @@ export default function Item({ url, alt, title, price }) {
       price: price,
       url: url,
       alt: alt,
-      UUID: UUID,
+      id: id,
     });
   }
   function handleRemove() {
@@ -27,7 +25,7 @@ export default function Item({ url, alt, title, price }) {
       price: price,
       url: url,
       alt: alt,
-      UUID: UUID,
+      id: id,
     });
   }
 
