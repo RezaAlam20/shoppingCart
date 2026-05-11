@@ -3,7 +3,7 @@ import styles from "../Css/Item.module.css";
 import { useState } from "react";
 
 export default function Item({ url, alt, title, price }) {
-  const { addToCart, cart } = useOutletContext();
+  const { addToCart, cart, removeItem } = useOutletContext();
   const [UUID] = useState(crypto.randomUUID());
 
   const item = cart.find((item) => item.UUID == UUID);
@@ -14,6 +14,15 @@ export default function Item({ url, alt, title, price }) {
 
   function handleAdd() {
     addToCart({
+      title: title,
+      price: price,
+      url: url,
+      alt: alt,
+      UUID: UUID,
+    });
+  }
+  function handleRemove() {
+    removeItem({
       title: title,
       price: price,
       url: url,
@@ -42,7 +51,7 @@ export default function Item({ url, alt, title, price }) {
           <span>{price}</span>
         </div>
         <div>
-          <button>-</button>
+          <button onClick={handleRemove}>-</button>
           <span>{amount}</span>
           <button onClick={handleAdd}>+</button>
         </div>
