@@ -6,7 +6,6 @@ export default function App() {
   const [cart, setCart] = useState([]);
   function addToCart(item) {
     let itemIndex = cart.findIndex((obj) => obj.UUID == item.UUID);
-    console.log(itemIndex);
 
     if (itemIndex == -1) {
       const tempItem = { ...item, amount: 1 };
@@ -21,11 +20,28 @@ export default function App() {
       setCart(temp);
     }
   }
+  function removeItem(item) {
+    let itemIndex = cart.findIndex((obj) => obj.UUID == item.UUID);
+    if (itemIndex == -1) {
+      return;
+    } else {
+      if (cart[itemIndex].amount == 1) {
+        const temp = [...cart];
+        temp.splice(itemIndex, 1);
+        setCart(temp);
+      } else {
+        const temp = [...cart];
+        const item = temp[itemIndex];
+        item.amount--;
+        setCart(temp);
+      }
+    }
+  }
 
   return (
     <>
       <Header></Header>
-      <Outlet context={{ cart, addToCart }}></Outlet>
+      <Outlet context={{ cart, addToCart, removeItem }}></Outlet>
       <footer>This is the footer</footer>
     </>
   );
