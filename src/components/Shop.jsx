@@ -1,32 +1,9 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import Item from "./Item";
 import styles from "../Css/Shop.module.css";
+import { useOutletContext } from "react-router-dom";
 
 export default function Shop() {
-  const [data, setData] = useState("");
-  const [loading, setloading] = useState("true");
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const getData = async () => {
-      await fetch("https://fakestoreapi.com/products")
-        .then((response) => response.json())
-        .then((data) => {
-          let selectedItems = [];
-          for (let i = 0; i < 12; i++) {
-            selectedItems.push(data[i]);
-          }
-          setData(selectedItems);
-        })
-        .catch((error) => {
-          setError(error);
-        })
-        .finally(() => {
-          setloading(false);
-        });
-    };
-    getData();
-  }, []);
+  const { data, loading, error } = useOutletContext();
   if (loading) {
     return <div>Loading ...</div>;
   }
@@ -44,6 +21,7 @@ export default function Shop() {
             alt={item.title}
             price={item.price}
             key={item.title}
+            id={item.id}
           ></Item>
         );
       })}
