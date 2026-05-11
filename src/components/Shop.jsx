@@ -33,7 +33,7 @@ export default function Shop() {
   if (error) {
     return <div>{error.message}</div>;
   }
-  console.log(data);
+
   return (
     <section className={styles.shop}>
       {data.map((item) => {
@@ -43,7 +43,7 @@ export default function Shop() {
             title={item.title}
             alt={item.title}
             price={item.price}
-            initialAmount={0}
+            key={item.title}
           ></Item>
         );
       })}
