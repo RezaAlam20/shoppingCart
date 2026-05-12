@@ -33,25 +33,31 @@ export default function Item({ url, alt, title, price, id }) {
     return (
       <div className={styles.item}>
         <img src={url} alt={alt} />
-        <div>
+        <div className={styles.info}>
           <span>{title}</span>
-          <span>{price}</span>
+          <span className={styles.price}>{price}</span>
         </div>
-        <button onClick={handleAdd}>Add to Cart</button>
+        <button onClick={handleAdd} className={styles.addToCart}>
+          Add to Cart
+        </button>
       </div>
     );
   } else {
     return (
       <div className={styles.item}>
         <img src={url} alt={alt} />
-        <div>
+        <div className={styles.info}>
           <span>{title}</span>
-          <span>{price}</span>
+          <span className={styles.price}>{price}</span>
         </div>
-        <div>
-          <button onClick={handleRemove}>-</button>
+        <div className={styles.amountWrapper}>
+          <button onClick={handleRemove} className={styles.decrement}>
+            -
+          </button>
           <span>{amount}</span>
-          <button onClick={handleAdd}>+</button>
+          <button onClick={handleAdd} className={styles.increment}>
+            +
+          </button>
         </div>
       </div>
     );
