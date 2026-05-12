@@ -1,15 +1,26 @@
+@import "./globals.module.css";
+
 .header {
-  background-color: red;
+  background-color: var(--bg-header);
+  color: var(--text-secondary);
   height: 5vw;
   padding: 0.5vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.header > h2 {
+  grid-column: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header > div {
+  grid-column: 3/4;
   display: flex;
   justify-content: flex-end;
+  padding-right: 5vw;
   align-items: center;
-  gap: 1vw;
-}
-
-img {
-  width: 100%;
+  gap: 2vw;
 }
 
 .footer {

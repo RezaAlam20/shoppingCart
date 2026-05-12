@@ -1,0 +1,201 @@
+:root {
+  /* Core colors */
+  --color-black: #0a0a0a;
+  --color-off-white: #f5f5f0;
+  --color-neon-red: #ff2a2a;
+  --color-cool-gray: #2b2b2b;
+  --color-charcoal: #1c1c1c;
+
+  /* Semantic aliases (easier to remember) */
+  --bg-header: var(--color-black);
+  --bg-body: var(--color-off-white);
+  --bg-card: var(--color-off-white);
+  --bg-secondary: var(--color-cool-gray);
+  --bg-dark: var(--color-charcoal);
+
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-off-white);
+  --text-muted: #8a8a8a;
+
+  --border-light: #3a3a3a;
+  --border-dark: var(--color-charcoal);
+
+  --btn-primary-bg: var(--color-neon-red);
+  --btn-primary-text: var(--color-off-white);
+
+  --btn-secondary-bg: var(--color-cool-gray);
+  --btn-secondary-text: var(--color-off-white);
+
+  --incdec-bg: var(--color-cool-gray);
+  --incdec-icon: var(--color-soft-mint);
+  --incdec-number: var(--color-off-white);
+
+  --cart-badge-bg: var(--color-neon-red);
+  --cart-badge-text: var(--color-black);
+
+  /* Spacing / utils optional */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --transition-fast: 0.2s ease;
+}
+/* Base Button */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+/* Primary Button (Black) */
+.btnPrimary {
+  background: var(--color-black, #0a0a0a);
+  color: var(--color-off-white, #f5f5f0);
+}
+
+.btnPrimary:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+.btnPrimary:active {
+  transform: translateY(1px);
+}
+
+/* Secondary Button (Cool Gray) */
+.btnSecondary {
+  background: var(--color-cool-gray, #2b2b2b);
+  color: var(--color-off-white, #f5f5f0);
+}
+
+.btnSecondary:hover {
+  background: #3a3a3a;
+  transform: translateY(-2px);
+}
+
+/* Outline Button */
+.btnOutline {
+  background: transparent;
+  color: var(--color-black, #0a0a0a);
+  border: 2px solid var(--color-black, #0a0a0a);
+}
+
+.btnOutline:hover {
+  background: var(--color-black, #0a0a0a);
+  color: var(--color-off-white, #f5f5f0);
+}
+
+/* Ghost Button */
+.btnGhost {
+  background: transparent;
+  color: var(--text-primary, #0a0a0a);
+  border: 1px solid var(--border-light, #3a3a3a);
+}
+
+.btnGhost:hover {
+  background: var(--color-cool-gray, #2b2b2b);
+  color: var(--color-off-white, #f5f5f0);
+  border-color: var(--color-cool-gray);
+}
+
+/* Light Button */
+.btnLight {
+  background: var(--color-off-white, #f5f5f0);
+  color: var(--color-black, #0a0a0a);
+  border: 1px solid #ddd;
+}
+
+.btnLight:hover {
+  background: #e8e8e0;
+  transform: translateY(-2px);
+}
+
+/* Dark Button */
+.btnDark {
+  background: var(--color-charcoal, #1c1c1c);
+  color: var(--color-off-white, #f5f5f0);
+}
+
+.btnDark:hover {
+  background: #2a2a2a;
+  transform: translateY(-2px);
+}
+
+/* Sizes */
+.btnSm {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.btnLg {
+  padding: 14px 36px;
+  font-size: 18px;
+}
+
+/* Full Width */
+.btnBlock {
+  display: block;
+  width: 100%;
+}
+
+/* Disabled */
+.btnDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Inc/Dec Buttons */
+.incdecBtn {
+  background: var(--incdec-bg, var(--color-cool-gray));
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.incdecBtn:hover {
+  background: #3a3a3a;
+  transform: scale(1.05);
+}
+
+.incdecNumber {
+  background: transparent;
+  color: var(--incdec-number, var(--color-off-white));
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 12px;
+  min-width: 30px;
+  text-align: center;
+}
+
+/* Cart Badge */
+.cartBadge {
+  background: var(--color-black, #0a0a0a);
+  color: var(--color-off-white, #f5f5f0);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}

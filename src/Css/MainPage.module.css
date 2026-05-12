@@ -1,11 +1,119 @@
+@import "./globals.module.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .imageContainer {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+.imageContainer > img {
+  min-width: 100%;
+  aspect-ratio: auto;
 }
 
 .phrase {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  color: var(--text-primary);
+  top: 20%;
+  font-size: calc(16px + 2vw);
+}
+.phrase > span {
+  color: var(--text-secondary);
+}
+
+.trending {
+  background-color: var(--bg-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  gap: calc(10px + 5vw);
+}
+
+.svg {
+  width: 5vw;
+  aspect-ratio: 1/1;
+  background-color: red;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+.holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  gap: 20px;
+  padding: 20px;
+  border: 2px solid var(--border-light);
+  border-radius: 10px;
+}
+
+.btnPrimary {
+  composes:
+    btnPrimary from "./globals.module.css",
+    btn from "./globals.module.css";
+
+  padding: 28px 12px;
+}
+.btnSecondary {
+  composes:
+    btnSecondary from "./globals.module.css",
+    btn from "./globals.module.css";
+}
+
+.title {
+  color: var(--text-secondary);
+}
+
+.btnLight {
+  composes:
+    btnLight from "./globals.module.css",
+    btn from "./globals.module.css";
+}
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trending > .wrapper {
+  color: var(--text-secondary);
+  height: 200px;
+}
+.trending > .wrapper > h1 {
+  font-size: 5vw;
+}
+.trending > .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.trending > .wrapper > h1 {
+  justify-self: flex-start;
+}
+
+.preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
 }
