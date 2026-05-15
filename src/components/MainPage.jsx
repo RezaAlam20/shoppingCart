@@ -5,6 +5,7 @@ import styles from "../Css/MainPage.module.css";
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import Item from "./Item.jsx";
+import { Link } from "react-router-dom";
 
 export default function MainPage() {
   const [currentItem, setCurrentItem] = useState(0);
@@ -68,7 +69,15 @@ export default function MainPage() {
       return [];
     } else {
       const firstHalf = data.slice(0, Math.ceil(data.length / 2));
-      return firstHalf;
+      const shortNames = firstHalf.map((item) => {
+        const title = item.title;
+        const split = title.split(" ");
+        split.splice(5);
+        const shortTitle = split.join(" ");
+        const newItem = { ...item, title: shortTitle };
+        return newItem;
+      });
+      return shortNames;
     }
   }
 
@@ -83,6 +92,9 @@ export default function MainPage() {
           <img src={img1} alt="image" />
           <img src={img2} alt="image" />
           <img src={img3} alt="image" />
+          <span className={styles.credits}>
+            Thanks to Logan Weaver , Mark Adriane , Anthony for the pictures
+          </span>
         </div>
       </section>
       <section className={styles.trending}>
@@ -112,15 +124,19 @@ export default function MainPage() {
         {getHalf().map((item) => {
           return (
             <Item
-              url={item.image}
-              price={item.price}
-              id={item.id}
-              alt={item.title}
+              image={item.image}
               title={item.title}
+              alt={item.title}
+              price={item.price}
+              key={item.title}
+              id={item.id}
             ></Item>
           );
         })}
-        <button>view more</button>
+
+        <Link to={"/Shop"} className={styles.viewmore}>
+          View More
+        </Link>
       </section>
     </>
   );
