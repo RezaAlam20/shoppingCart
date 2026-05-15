@@ -14,14 +14,19 @@ export default function Shop() {
   return (
     <section className={styles.shop}>
       {data.map((item) => {
+        const title = item.title;
+        const split = title.split(" ");
+        split.splice(5);
+        const shortTitle = split.join(" ");
+        const newItem = { ...item, title: shortTitle };
         return (
           <Item
-            url={item.image}
-            title={item.title}
-            alt={item.title}
-            price={item.price}
-            key={item.title}
-            id={item.id}
+            image={newItem.image}
+            title={newItem.title}
+            alt={newItem.title}
+            price={newItem.price}
+            key={newItem.title}
+            id={newItem.id}
           ></Item>
         );
       })}
