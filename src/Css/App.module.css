@@ -1,0 +1,14 @@
+footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

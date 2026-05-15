@@ -1,7 +1,14 @@
 @import "./globals.module.css";
 
+* {
+  margin: 0;
+
+  padding: 0;
+  box-sizing: border-box;
+}
 .item {
   width: 20vw;
+  height: 30vw;
   aspect-ratio: 3/4;
   display: flex;
   flex-direction: column;
@@ -9,7 +16,8 @@
   justify-content: space-between;
   background-color: var(--bg-card);
   border-radius: 20px;
-  padding-top: 10px;
+  padding: 2vw;
+  font-size: 1vw;
 }
 
 .addToCart {
@@ -18,9 +26,16 @@
     btn from "./globals.module.css";
 
   border-radius: 20px;
+  min-width: 80%;
+  align-self: center;
+  margin-bottom: 10px;
+  height: 3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 img {
-  width: 15vw;
+  width: 10vw;
   aspect-ratio: 1/1;
 }
 .item > img {
@@ -31,25 +46,42 @@ img {
   composes:
     btnGhost from "./globals.module.css",
     btn from "./globals.module.css";
+
+  width: 3vw;
+  height: 3vw;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .decrement {
   composes:
     btnGhost from "./globals.module.css",
     btn from "./globals.module.css";
+
+  width: 3vw;
+  height: 3vw;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .amountWrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .info {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 1vw;
   gap: 5px;
+
+  height: 5vw;
 }
 .price {
   align-self: flex-end;

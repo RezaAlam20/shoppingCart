@@ -4,4 +4,7 @@
   justify-items: center;
   align-content: center;
   gap: 5vw;
+  padding: 2vw;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
 }

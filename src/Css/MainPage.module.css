@@ -1,15 +1,30 @@
 @import "./globals.module.css";
 
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/fonts/RubikDistressed-Regular.woff2");
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Rubik";
+  font-size: 1vw;
 }
 
 .imageContainer {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.imageContainer > span {
+  position: absolute;
+  bottom: 0;
+  left: 2vw;
+  color: var(--text-secondary);
+  font-size: 1vw;
 }
 .imageContainer > img {
   min-width: 100%;
@@ -22,10 +37,13 @@
   transform: translateX(-50%);
   color: var(--text-primary);
   top: 20%;
-  font-size: calc(16px + 2vw);
+  font-family: "Rubik";
+  font-weight: bold;
+  font-size: 2.5vw;
 }
 .phrase > span {
   color: var(--text-secondary);
+  font-size: 2.5vw;
 }
 
 .trending {
@@ -102,7 +120,7 @@
 .trending > .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .trending > .wrapper > h1 {
@@ -113,7 +131,24 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  gap: 20px;
+  gap: 5vw;
   padding: 20px;
+  padding-top: 5vw;
   background-color: white;
+}
+.viewmore {
+  composes:
+    btnSecondary from "./globals.module.css",
+    btn from "./globals.module.css";
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  grid-column: 3/4;
+
+  width: 20vw;
+  height: 5vw;
+  font-size: 2vw !important;
 }

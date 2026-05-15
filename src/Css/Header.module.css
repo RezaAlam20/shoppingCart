@@ -13,6 +13,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Rubik";
+  font-size: 3vw;
 }
 .header > div {
   grid-column: 3/4;
@@ -21,8 +23,34 @@
   padding-right: 5vw;
   align-items: center;
   gap: 2vw;
+  font-family: "Rubik";
 }
 
 .footer {
   background-color: rgb(60, 59, 59);
+}
+
+.link {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.link:visited {
+  color: var(--color-off-white);
 }
