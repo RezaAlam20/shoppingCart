@@ -3,13 +3,14 @@ import img2 from "../assets/logan.jpg";
 import img3 from "../assets/Anthony.jpg";
 import styles from "../Css/MainPage.module.css";
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import Item from "./Item.jsx";
 import { Link } from "react-router-dom";
 
 export default function MainPage() {
   const [currentItem, setCurrentItem] = useState(0);
-  const { data, loading } = useOutletContext();
+  const { data, loading, addToCart } = useOutletContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,6 +81,10 @@ export default function MainPage() {
       return shortNames;
     }
   }
+  function handleTrendAdd() {
+    addToCart(data[currentItem]);
+    navigate("/Shop");
+  }
 
   return (
     <>
@@ -117,7 +122,9 @@ export default function MainPage() {
               {">"}
             </button>
           </div>
-          <button className={styles.btnLight}>ADD TO CART</button>
+          <button className={styles.btnLight} onClick={handleTrendAdd}>
+            ADD TO CART
+          </button>
         </div>
       </section>
       <section className={styles.preview}>
