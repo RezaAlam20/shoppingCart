@@ -16,6 +16,20 @@
   font-family: "Rubik";
   font-size: 3vw;
 }
+.header > h2 > a {
+  font-size: 3vw;
+  text-decoration: none;
+}
+
+.header > h2 > a:visited {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.header > h2 > a:hover {
+  text-decoration: none;
+}
+
 .header > div {
   grid-column: 3/4;
   display: flex;

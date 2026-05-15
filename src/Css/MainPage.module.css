@@ -135,6 +135,7 @@
   padding: 20px;
   padding-top: 5vw;
   background-color: white;
+  padding-bottom: 100px;
 }
 .viewmore {
   composes:
