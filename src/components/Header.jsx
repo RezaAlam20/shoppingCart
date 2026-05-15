@@ -5,7 +5,9 @@ export default function Header() {
   return (
     <>
       <header className={styles.header}>
-        <h2>Fade Out</h2>
+        <h2>
+          <Link to={"/"}>Fade Out</Link>
+        </h2>
         <div className={styles.links}>
           <Link to={"/"} className={styles.link}>
             Home
