@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
-
+import styles from "../Css/App.module.css";
 export default function App() {
   const [cart, setCart] = useState([]);
   const [data, setData] = useState("");
@@ -63,12 +63,14 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className={styles.App}>
       <Header></Header>
       <Outlet
         context={{ cart, addToCart, removeItem, data, loading, error }}
       ></Outlet>
-      <footer>This is the footer</footer>
-    </>
+      <footer>
+        <span className={styles.madeby}>Made buy RezaAlam20</span>
+      </footer>
+    </div>
   );
 }
