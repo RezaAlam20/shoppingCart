@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "../Css/Header.module.css";
 
-export default function Header() {
+export default function Header({ calcSum }) {
+  let showSum = false;
+  if (calcSum() == 0) {
+    showSum = false;
+  } else {
+    showSum = true;
+  }
   return (
     <>
       <header className={styles.header}>
@@ -16,7 +22,7 @@ export default function Header() {
             Shop
           </Link>
           <Link to={"/Cart"} className={styles.link}>
-            Cart
+            Cart {showSum ? <div className={styles.sum}>{calcSum()}</div> : ""}
           </Link>
         </div>
       </header>
