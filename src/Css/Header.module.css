@@ -68,3 +68,12 @@
 .link:visited {
   color: var(--color-off-white);
 }
+
+.sum {
+  position: absolute;
+  bottom: 80%;
+  right: -20%;
+  border: 1px solid var(--color-off-white);
+  border-radius: 20px;
+  font-size: 0.7vw;
+}
