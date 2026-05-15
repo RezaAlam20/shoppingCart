@@ -7,6 +7,14 @@ export default function App() {
   const [data, setData] = useState("");
   const [loading, setloading] = useState("true");
   const [error, setError] = useState(null);
+
+  function calcSum() {
+    let sum = 0;
+    cart.map((item) => {
+      sum = sum + item.amount;
+    });
+    return sum;
+  }
   useEffect(() => {
     const getData = async () => {
       await fetch("https://fakestoreapi.com/products")
@@ -64,12 +72,12 @@ export default function App() {
 
   return (
     <div className={styles.App}>
-      <Header></Header>
+      <Header calcSum={calcSum}></Header>
       <Outlet
         context={{ cart, addToCart, removeItem, data, loading, error }}
       ></Outlet>
       <footer>
-        <span className={styles.madeby}>Made buy RezaAlam20</span>
+        <span className={styles.madeby}>Made by RezaAlam20</span>
       </footer>
     </div>
   );
