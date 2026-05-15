@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import styles from "../Css/Item.module.css";
 
-export default function Item({ url, alt, title, price, id }) {
+export default function Item({ image, alt, title, price, id, className = "" }) {
   const { addToCart, cart, removeItem } = useOutletContext();
 
   const item = cart.find((item) => item.id == id);
@@ -14,7 +14,7 @@ export default function Item({ url, alt, title, price, id }) {
     addToCart({
       title: title,
       price: price,
-      url: url,
+      image: image,
       alt: alt,
       id: id,
     });
@@ -23,7 +23,7 @@ export default function Item({ url, alt, title, price, id }) {
     removeItem({
       title: title,
       price: price,
-      url: url,
+      image: image,
       alt: alt,
       id: id,
     });
@@ -31,11 +31,11 @@ export default function Item({ url, alt, title, price, id }) {
 
   if (amount == 0) {
     return (
-      <div className={styles.item}>
-        <img src={url} alt={alt} />
+      <div className={`${styles.item} ${className}`}>
+        <img src={image} alt={alt} />
         <div className={styles.info}>
           <span>{title}</span>
-          <span className={styles.price}>{price}</span>
+          <span className={styles.price}>{price} $</span>
         </div>
         <button onClick={handleAdd} className={styles.addToCart}>
           Add to Cart
@@ -44,11 +44,11 @@ export default function Item({ url, alt, title, price, id }) {
     );
   } else {
     return (
-      <div className={styles.item}>
-        <img src={url} alt={alt} />
+      <div className={`${styles.item} ${className}`}>
+        <img src={image} alt={alt} />
         <div className={styles.info}>
           <span>{title}</span>
-          <span className={styles.price}>{price}</span>
+          <span className={styles.price}>{price} $</span>
         </div>
         <div className={styles.amountWrapper}>
           <button onClick={handleRemove} className={styles.decrement}>
