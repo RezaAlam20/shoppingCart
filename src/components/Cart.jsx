@@ -1,17 +1,35 @@
 import { useOutletContext } from "react-router-dom";
-
+import styles from "../Css/Cart.module.css";
+import Item from "./Item";
 export default function Cart() {
-  const { cart } = useOutletContext();
+  const { cart, loading } = useOutletContext();
+  if (loading) {
+    return <div>loading ...</div>;
+  }
+
+  if (cart.length == 0) {
+    return (
+      <div className={styles.emptyMessage}>LOOKS LIKE YOUR CART IS EMPTY</div>
+    );
+  }
+
   return (
-    <div>
+    <section className={styles.Cart}>
       {cart.map((item) => {
+        console.log(item);
+
         return (
-          <>
-            <span>{item.title}</span>
-            <span>{item.amount}</span>
-          </>
+          <Item
+            image={item.image}
+            title={item.title}
+            alt={item.title}
+            price={item.price}
+            key={item.title}
+            id={item.id}
+            className={styles.cartItem}
+          ></Item>
         );
       })}
-    </div>
+    </section>
   );
 }
