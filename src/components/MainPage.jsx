@@ -1,6 +1,6 @@
 import img1 from "../assets/Mike.jpg";
 import img2 from "../assets/logan.jpg";
-import img3 from "../assets/Anthony.jpg";
+import img3 from "../assets/MikeVon.jpg";
 import styles from "../Css/MainPage.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
@@ -98,7 +98,7 @@ export default function MainPage() {
           <img src={img2} alt="image" />
           <img src={img3} alt="image" />
           <span className={styles.credits}>
-            Thanks to Logan Weaver , Mark Adriane , Anthony for the pictures
+            Thanks to Logan Weaver and Mike Von for the pictures
           </span>
         </div>
       </section>
