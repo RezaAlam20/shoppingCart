@@ -7,9 +7,15 @@ export default function Header() {
       <header className={styles.header}>
         <h2>Fade Out</h2>
         <div className={styles.links}>
-          <Link to={"/"}>Home</Link>
-          <Link to={"/Shop"}>Shop</Link>
-          <Link to={"/Cart"}>Cart</Link>
+          <Link to={"/"} className={styles.link}>
+            Home
+          </Link>
+          <Link to={"/Shop"} className={styles.link}>
+            Shop
+          </Link>
+          <Link to={"/Cart"} className={styles.link}>
+            Cart
+          </Link>
         </div>
       </header>
     </>
