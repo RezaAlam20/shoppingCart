@@ -1,11 +1,16 @@
 import Item from "./Item";
 import styles from "../Css/Shop.module.css";
 import { useOutletContext } from "react-router-dom";
+import svg from "../assets/loading.svg";
 
 export default function Shop() {
   const { data, loading, error } = useOutletContext();
   if (loading) {
-    return <div>Loading ...</div>;
+    return (
+      <div className={styles.container}>
+        <img src={svg} alt="loading" className={svg} />
+      </div>
+    );
   }
   if (error) {
     return <div>{error.message}</div>;

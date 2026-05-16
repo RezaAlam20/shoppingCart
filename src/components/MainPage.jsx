@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import Item from "./Item.jsx";
 import { Link } from "react-router-dom";
+import svg from "../assets/loading.svg";
 
 export default function MainPage() {
   const [currentItem, setCurrentItem] = useState(0);
@@ -27,7 +28,7 @@ export default function MainPage() {
   }, []);
   function getImage() {
     if (loading) {
-      return <img className={styles.svg} src="../assets/loading.svg" />;
+      return <img className={styles.svg} src={svg} />;
     } else {
       const title = data[currentItem].title;
       const items = title.split(" ");

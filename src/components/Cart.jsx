@@ -1,10 +1,15 @@
 import { useOutletContext } from "react-router-dom";
 import styles from "../Css/Cart.module.css";
 import Item from "./Item";
+import svg from "../assets/loading.svg";
 export default function Cart() {
   const { cart, loading } = useOutletContext();
   if (loading) {
-    return <div>loading ...</div>;
+    return (
+      <div className={styles.container}>
+        <img src={svg} alt="loading" className={svg} />
+      </div>
+    );
   }
 
   if (cart.length == 0) {
