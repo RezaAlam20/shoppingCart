@@ -4,17 +4,10 @@ import { Outlet } from "react-router-dom";
 import styles from "../Css/App.module.css";
 export default function App() {
   const [cart, setCart] = useState([]);
-  const [data, setData] = useState("");
-  const [loading, setloading] = useState("true");
+  const [data, setData] = useState([]);
+  const [loading, setloading] = useState(true);
   const [error, setError] = useState(null);
 
-  function calcSum() {
-    let sum = 0;
-    cart.map((item) => {
-      sum = sum + item.amount;
-    });
-    return sum;
-  }
   useEffect(() => {
     const getData = async () => {
       await fetch("https://fakestoreapi.com/products")
@@ -68,6 +61,13 @@ export default function App() {
         setCart(temp);
       }
     }
+  }
+  function calcSum() {
+    let sum = 0;
+    cart.map((item) => {
+      sum = sum + item.amount;
+    });
+    return sum;
   }
 
   return (
