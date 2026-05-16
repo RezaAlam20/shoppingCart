@@ -51,6 +51,7 @@
   text-decoration: none;
   position: relative;
   display: inline-block;
+  color: var(--color-off-white);
 }
 
 .link::after {
@@ -62,10 +63,12 @@
   left: 0;
   background-color: currentColor;
   transition: width 0.3s ease;
+  color: var(--color-off-white);
 }
 
 .link:hover::after {
   width: 100%;
+  color: var(--color-off-white);
 }
 
 .link:visited {
